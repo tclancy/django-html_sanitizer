@@ -19,4 +19,4 @@ class SanitizedCharField(forms.CharField):
         value = super(SanitizedCharField, self).clean(value)
         return bleach.clean(value, tags=self._allowed_tags,
             attributes=self._allowed_attributes, 
-            styles=self._allowed_styles, strip=self._strip)
+            styles=self._allowed_styles, strip=self._strip, strip_comments=self._strip)
